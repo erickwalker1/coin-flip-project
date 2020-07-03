@@ -3,7 +3,7 @@ let coin = {
     state: 0,
     flip: function() {
 
-        this.state = Math.random()
+        this.state = Math.round(Math.random())
 
          return this.state
     },
@@ -18,7 +18,8 @@ let coin = {
             return 'Heads'
       } else {
 
-            this.state = Math.ceil(this.state)
+        
+          this.state = Math.ceil(this.state)
 
            return 'Tails'
         }
@@ -40,42 +41,47 @@ let coin = {
     } 
 }; 
 
-console.log(coin.state)
-console.log(coin.flip())
-console.log(coin.toString())
+//console.log(coin.state)
+//console.log(coin.flip())
+//console.log(coin.toString())
 
  function display20Flips() {
 
     let list = document.createElement('ul')
 
+
     for(let i = 0; i < 20; i ++) {
+
+       coinFlip = coin.flip()
+
+       let randomFlip = coin.toString()
     
        let item = document.createElement('li')
-        
-       let randomFlip = coin.toString()
 
        item.textContent = randomFlip
 
        document.body.append(item)
+
+       console.log(coin.flip())
+       console.log(coin.toString())
     }
 }
 
-display20Flips()
+//display20Flips()
 
 
  function display20Images() {
-    for( let index = 0; index < 20; index ++) {
-       
-       // let item = document.createElement('li')
+    for( let i = 0; i < 20; i ++) {
+
+        coin.flip()
 
         let randomImage = coin.toHTML()
-
-        //item.textContent = randomImage
 
         document.body.append(randomImage)
     }
 } 
 
+display20Flips()
 display20Images()
 
 
